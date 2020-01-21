@@ -4,6 +4,10 @@ class User < ApplicationRecord
   validates :email, :presence => true, :uniqueness => true
   before_save :encrypt_password
 
+  has_many :questions, dependent: :destroy
+  has_many :votes, dependent: :destroy
+  has_many :answers, dependent: :destroy
+
   def encrypt_password
     self.password_salt = BCrypt::Engine.generate_salt
     self.password_hash = BCrypt::Engine.hash_secret(password,password_salt)

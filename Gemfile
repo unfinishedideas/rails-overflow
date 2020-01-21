@@ -31,6 +31,7 @@ gem 'bcrypt', '~> 3.1.7'
 group :test do
   gem 'simplecov', require: false
   gem 'factory_bot_rails'
+  gem 'shoulda-matchers'
 end
 
 # Use Capistrano for deployment
